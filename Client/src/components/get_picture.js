@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState} from "react";
+import React, {useRef, useEffect, useState, useCallback, input} from "react";
 import axios from "axios";
 import "./image.css"
 
@@ -54,16 +54,24 @@ const Get_Picture = () => {
         }
     }
 
-        window.addEventListener('keyup', e => {
-            console.log(e.key)
-            axios.post('http://Mac-Mini:5000/send_key', {
+    const checkKeyPress = useCallback((e) => {
+        const { key, keyCode } = e;
+        console.log(key, keyCode);
+        axios.post('http://Mac-Mini:5000/send_key', {
                 "Character": e.key
             }).then((response) => {
                 // console.dog(response.data)
             }, (error) => {
                 // console.log(error);
             });
-        });
+    },[input]);
+
+    useEffect(() => {
+        window.addEventListener("keydown", checkKeyPress);
+        return () => {
+          window.removeEventListener("keydown", checkKeyPress);
+        };
+    }, [checkKeyPress]);
 
     const render_picture = () => {
         if (picture !== "") {
