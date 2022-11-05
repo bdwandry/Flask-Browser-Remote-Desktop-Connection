@@ -1,6 +1,7 @@
 import React, {useEffect} from "react";
 import {Button} from "@mui/material";
 import axios from "axios";
+import "./image.css"
 
 
 const Get_Picture = () => {
@@ -14,8 +15,13 @@ const Get_Picture = () => {
             console.log(picture.Image[0])
             return(
                 <div>
-                    <h1>PICTURE</h1>
-                    <img src={picture.Image[0]} width={"100%"} alt="Picture"/>
+                    <img class="center-fit" src={picture.Image[0]} alt="Picture"/>
+                </div>
+            )
+        } else {
+            return (
+                <div>
+                    <Button variant="contained" onClick={get_pic}>Get Picture</Button>
                 </div>
             )
         }
@@ -34,7 +40,6 @@ const Get_Picture = () => {
 
     return(
         <div>
-            <Button variant="contained" onClick={get_pic}>Get Picture</Button>
             {render_picture()}
         </div>
     )
