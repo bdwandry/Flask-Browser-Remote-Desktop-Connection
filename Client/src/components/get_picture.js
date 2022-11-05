@@ -7,18 +7,18 @@ const Get_Picture = () => {
     const [picture, setPicture] = React.useState("");
 
     useEffect(() => {
-        const timer = setInterval(() => get_pic(), 1000);
+        const timer = setInterval(() => get_pic(), 500);
         return () => clearInterval(timer);
     },[]);
 
     async function get_pic() {
-        axios.post('http://localhost:5000/get_picture', {
+        axios.post('http://Mac-Mini:5000/get_picture', {
         "Picture": "Send Picture",
         }).then((response) => {
         // console.log(response.data)
         setPicture(response.data)
         }, (error) => {
-            console.log(error);
+            // console.log(error);
         });
     }
 
@@ -43,20 +43,31 @@ const Get_Picture = () => {
             console.log(width)
             console.log(height)
 
-            axios.post('http://localhost:5000/send_coordinates', {
+            axios.post('http://Mac-Mini:5000/send_coordinates', {
                 "X": x,
                 "Y": y,
             }).then((response) => {
-                console.log(response.data)
+                // console.log(response.data)
             }, (error) => {
-                console.log(error);
+                // console.log(error);
             });
         }
     }
 
+        window.addEventListener('keyup', e => {
+            console.log(e.key)
+            axios.post('http://Mac-Mini:5000/send_key', {
+                "Character": e.key
+            }).then((response) => {
+                // console.dog(response.data)
+            }, (error) => {
+                // console.log(error);
+            });
+        });
+
     const render_picture = () => {
         if (picture !== "") {
-        console.log(picture.Image[0])
+        // console.log(picture.Image[0])
         return(
             <div>
                 <img class="center-fit" src={picture.Image[0]} alt="Picture" onClick={get_click} ref={imageRef}/>
