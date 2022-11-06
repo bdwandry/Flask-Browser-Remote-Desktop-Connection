@@ -13,9 +13,7 @@ This same principle can applied to screens and remote controlling pc's.
 This code does not do any form of optimization, so it has a high data use. 
 
 So how this Project Functions is that there is a client/server situation:
-  * The Front-End (client side) is just a basic ReactJS Web-App. It's job is to display an oncoming image, intercept keyboard inputs, & track mouse     
-    location/clicks on the image being presented on screen. Once one of these events occur, it will ping the backend server. The front end will 
-    automatically scale the image to fit the browser window, so it may stretch the screen, but by doing this we can guarentee the mouse coordinates will  
+  * The Front-End (client side) is just a basic ReactJS Web-App. It's job is to display an oncoming image, intercept keyboard inputs, & track mouse             location/clicks on the image being presented on screen. Once one of these events occur, it will ping the backend server. The front end will                 automatically scale the image to fit the browser window, so it may stretch the screen, but by doing this we can guarentee the mouse coordinates will  
     work when pressing on the image being presented. Mouse coordinates being returned to the backend server are within' a ratio between 0-1 (as a decimal   
     value). I took the mouse location clicked on the image being returned by the server computer and then divided it by the full image size rendered on 
     screen. The backend server then intercepts this ratio and then multiplies by the actual screen resolution set on the device. 
