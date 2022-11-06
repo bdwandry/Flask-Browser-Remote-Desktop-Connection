@@ -40,12 +40,6 @@ Setting up:
      python -m venv ./venv
      venv\Scripts\activate.bat
      pip install -r requirements.txt
-     pip install keyboard
-     pip install flask
-     pip install flask_cors
-     pip install pillow
-     pip install pyautogui
-     pip install screeninfo
      cd ..
      cd Client
      npm install
