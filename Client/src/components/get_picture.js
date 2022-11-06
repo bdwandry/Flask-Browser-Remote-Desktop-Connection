@@ -43,7 +43,7 @@ const Get_Picture = () => {
             console.log(width)
             console.log(height)
 
-            axios.post('http://Mac-Mini:5000/send_coordinates', {
+            axios.post('http://Mac-Mini:5050/send_coordinates', {
                 "X": x,
                 "Y": y,
             }).then((response) => {
@@ -57,7 +57,7 @@ const Get_Picture = () => {
     const checkKeyPress = useCallback((e) => {
         const { key, keyCode } = e;
         console.log(key, keyCode);
-        axios.post('http://Mac-Mini:5000/send_key', {
+        axios.post('http://Mac-Mini:5025/send_key', {
                 "Character": e.key
             }).then((response) => {
                 // console.dog(response.data)
