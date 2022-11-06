@@ -2,6 +2,7 @@
 This is a crappy example/implementation of creating remote connection through a browser that allows a user to control their PC. 
 This is terrible by design and is just a proof of concept for myself to see how difficult it was to get something like this working. 
 This really does not work well, I have it set to output at max 2 FPS. 
+Also if this deployed outside of a private network, I'm sure it would be a HUGE SECURITY RISK.
 
 (This project was inspired by Apache Guacamole Project - Being able to RDP, VNC, SSH, etc in the Browser is cool. Give the people who develop that project a huge shoutout. )
 __________________________________________________
